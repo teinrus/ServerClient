@@ -3,15 +3,16 @@ import java.net.Socket;
 
 public class Client {
 
-    static Socket clientSocket; //сокет для общения
+
     private static BufferedReader reader; // нам нужен ридер читающий с консоли, иначе как
     // мы узнаем что хочет сказать клиент?
     private static BufferedReader in; // поток чтения из сокета
     private static BufferedWriter out; // поток записи в сокет
 
     public static void main(String[] args) {
-        try {
-            clientSocket = new Socket("localhost", 8989); // этой строкой мы запрашиваем
+        try (Socket clientSocket = new Socket("localhost", 8989)
+        ) {
+            ; // этой строкой мы запрашиваем
 
             reader = new BufferedReader(new InputStreamReader(System.in));
             // читать соообщения с сервера

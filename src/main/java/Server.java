@@ -18,58 +18,7 @@ public class Server {
 
 
     public static void main(String[] args) {
-        /*try {
-            ServerSocket server = new ServerSocket(4004); // серверсокет прослушивает порт 4004
-            System.out.println("Сервер запущен!");
-            while (true) {
 
-                try {
-                    clientSocket = server.accept();
-                    System.out.println("New client connected to server");
-
-                    in = new BufferedReader(new InputStreamReader(clientSocket.getInputStream()));
-                    out = new BufferedWriter(new OutputStreamWriter(clientSocket.getOutputStream()));
-
-
-
-
-                    if (text == null) {
-                        out.write("Привет, это Сервер! Ты первый вводи любой город" + "\n");
-                        }else if (oneChar==text.charAt(text.length()-1) && text != null ){
-                        out.write("Вы ввели неправильное значение, было нужно : " + oneChar + "\n");
-                    }else {
-                        out.write("Вам на: " + endChar + "\n");
-                        oneChar=endChar;
-                    }
-
-                    out.flush();
-
-                    text = in.readLine();
-                    oneChar = text.charAt(0);
-
-
-                    System.out.println("Вам написали текст: " + text + "\n" + "Номер порта: " + clientSocket.getPort());
-                    System.out.println(endChar);
-                    System.out.println(oneChar);
-                    clientSocket.close();
-                    // потоки тоже хорошо бы закрыть
-                    in.close();
-                    out.close();
-
-
-                    // выталкиваем все из буфера
-                } finally { // в любом случае сокет будет закрыт
-                    clientSocket.close();
-                    // потоки тоже хорошо бы закрыть
-                    in.close();
-                    out.close();
-                }
-            }
-
-
-        } catch (IOException e) {
-            System.err.println(e);
-        }*/
         try (ServerSocket serverSocket = new ServerSocket(8989);) {// стартуем сервер один(!) раз
             System.out.println("Сервер запущен!");
             while (true) { // в цикле(!) принимаем подключения
