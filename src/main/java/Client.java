@@ -12,7 +12,7 @@ public class Client {
     public static void main(String[] args) {
         try (Socket clientSocket = new Socket("localhost", 8989)
         ) {
-            ; // этой строкой мы запрашиваем
+            // этой строкой мы запрашиваем
 
             reader = new BufferedReader(new InputStreamReader(System.in));
             // читать соообщения с сервера
